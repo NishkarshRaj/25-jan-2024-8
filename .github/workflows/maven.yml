@@ -2,12 +2,6 @@ name: DevSecOps Pipeline Workflow
 
 on: push
 
-env:
-  # Use docker.io for Docker Hub if empty
-  REGISTRY: ghcr.io
-  # github.repository as <account>/<repo>
-  IMAGE_NAME: ${{ github.repository }}
-
 permissions:
   contents: read
 
@@ -89,5 +83,5 @@ jobs:
         run: mvn clean package
       - name: BnP Docker Image
         run: |
-          docker build -t ghcr.io/nishkarshraj/bstg-mvn-template .
-          docker push ghcr.io/nishkarshraj/bstg-mvn-template
+          docker build -t ghcr.io/IMAGE_NAME: ${{ github.repository.lowercase }} .
+          docker push ghcr.io/IMAGE_NAME: ${{ github.repository.lowercase }}
